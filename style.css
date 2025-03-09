@@ -1,0 +1,69 @@
+body,
+html {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  outline: 1px solid black;
+  height: 100px;
+  margin-bottom: 10px;
+  background-color: #f0f0f0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  
+  font-size: 24px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.numbers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 300px;
+}
+
+.num-btn {
+  flex: 1 1 calc(33.33% - 10px);
+  height: 50px;
+  font-size: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.calculator {
+  display: flex;
+  gap: 10px; /* Adds space between numbers and actions */
+  width: 600px; /* Fixed width for the calculator */
+  max-width: 100%;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.actions button {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  padding: 0px 20px;
+
+  flex: 1;
+  font-size: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
