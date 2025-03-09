@@ -31,15 +31,15 @@ let buttonClicked = false;
 numberButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const number = button.textContent;
-    // if (
-    //   currentInput.includes('-') ||
-    //   currentInput.includes('/') ||
-    //   currentInput.includes('*') ||
-    //   currentInput.includes('+')
-    // ) {
-    //   let currentSymbol = footer.textContent;
-    //   currentInput = '';
-    // }
+    if (
+      currentInput.includes('-') ||
+      currentInput.includes('/') ||
+      currentInput.includes('*') ||
+      currentInput.includes('+')
+    ) {
+      let currentSymbol = footer.textContent;
+      currentInput = '';
+    }
 
     buttonClicked = true;
 
@@ -61,7 +61,7 @@ actionButtons.forEach((button) => {
       let firstPartInput = currentInput;
       currentInput = '';
 
-      if (partInput != 0 && buttonClicked == true) {
+      if (firstPartInput != 0 && buttonClicked == true) {
         currentInput += action;
       }
       footer.textContent = currentInput;
