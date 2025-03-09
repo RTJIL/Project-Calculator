@@ -21,6 +21,13 @@ html {
   justify-content: flex-end;
 }
 
+.footer .result {
+    margin-right: auto;
+    margin-bottom: auto;
+    padding: 0;
+    font-size: 24px;
+}
+
 .numbers {
   display: flex;
   flex-wrap: wrap;

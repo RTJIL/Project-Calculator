@@ -3,22 +3,22 @@ function operate(num1, action, num2) {
 
   switch (action) {
     case '+':
-      result = num1 + num2;
+      result = Number(num1) + Number(num2);
       break;
     case '-':
-      result = num1 - num2;
+      result = Number(num1) - Number(num2);
       break;
     case '*':
-      result = num1 * num2;
+      result = Number(num1) * Number(num2);
       break;
     case '/':
-      result = num1 / num2;
+      result = Number(num1) / Number(num2);
       break;
     default:
       result = 'Invalid operator';
   }
 
-  return result;
+  return result.toString();
 }
 
 const containerNums = document.querySelector('.numbers');
@@ -46,13 +46,15 @@ containerActions.forEach((action) => {
 
 const numberButtons = document.querySelectorAll('.num-btn');
 const actionButtons = document.querySelectorAll('#act-btn');
-const footer = document.querySelector('.footer');
+const expression = document.querySelector('.expression');
+const res = document.querySelector('.result')
 
 let currentInput = '';
 let buttonClicked = false;
-let currentAction
+let currentAction;
 let firstPartInput = '';
 let secondPartInput = '';
+let evaluation = '';
 
 numberButtons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -63,7 +65,7 @@ numberButtons.forEach((button) => {
       currentInput.includes('*') ||
       currentInput.includes('+')
     ) {
-      currentAction = footer.textContent;
+      currentAction = expression.textContent;
       currentInput = '';
       console.log('currentSymbol = ' + currentAction);
     }
@@ -72,7 +74,7 @@ numberButtons.forEach((button) => {
 
     currentInput += number;
 
-    footer.textContent = currentInput;
+    expression.textContent = currentInput;
   });
 });
 
@@ -95,7 +97,7 @@ actionButtons.forEach((button) => {
       if (firstPartInput != 0 && buttonClicked == true) {
         currentInput += action;
       }
-      footer.textContent = currentInput;
+      expression.textContent = currentInput;
 
       secondPartInput = '';
       buttonClicked = false;
@@ -116,8 +118,10 @@ actionButtons.forEach((button) => {
       if (firstPartInput != 0 && buttonClicked == true) {
         currentInput += action;
       }
-      footer.textContent = currentInput;
+      expression.textContent = currentInput;
 
+      console.log(operate(firstPartInput, currentAction, secondPartInput));
+      res.textContent = operate(firstPartInput, currentAction, secondPartInput);
       firstPartInput = '';
       buttonClicked = false;
     }
@@ -127,5 +131,6 @@ actionButtons.forEach((button) => {
 const clearButton = document.querySelector('.actions .C');
 clearButton.addEventListener('click', () => {
   currentInput = '';
-  footer.textContent = '';
+  expression.textContent = '';
+  res.textContent = 0;
 });
